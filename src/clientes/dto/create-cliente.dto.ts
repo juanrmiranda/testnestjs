@@ -1,6 +1,4 @@
 import { IsDateString, IsInt, IsOptional, IsString, MaxLength, MinLength } from "class-validator"
-import { Profesion } from "src/catalogos/entities/profesion.entity"
-
 export class CreateClienteDto {
     @IsString()
     @MinLength(5)

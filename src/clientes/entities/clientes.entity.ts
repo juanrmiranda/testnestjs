@@ -1,11 +1,11 @@
-import { EstadoCivil } from 'src/catalogos/entities/estadoCivil.entity';
-import { EstadoCliente } from 'src/catalogos/entities/estadoClientes.entity';
-import { Genero } from 'src/catalogos/entities/genero.entity';
-import { Profesion } from 'src/catalogos/entities/profesion.entity';
-import { TipoPersoneria } from 'src/catalogos/entities/tipoPersoneria.entity';
-import { TipoVivienda } from 'src/catalogos/entities/tipoVivienda.entity';
-import { tk_ManyToOneRestricNullable } from 'src/tkcore/tk_RelationsRestriction.decorators';
-import { tk_AuditTable } from 'src/tkcore/tk_AuditTable';
+import { estadoCivil } from 'catalogos/entities/estadoCivil.entity'
+import { EstadoCliente } from 'catalogos/entities/estadoClientes.entity';
+import { Genero } from 'catalogos/entities/genero.entity';
+import { Profesion } from 'catalogos/entities/profesion.entity';
+import { TipoPersoneria } from 'catalogos/entities/tipoPersoneria.entity';
+import { TipoVivienda } from 'catalogos/entities/tipoVivienda.entity';
+import { tk_ManyToOneRestricNullable } from 'tkcore/tk_RelationsRestriction.decorators';
+import { tk_AuditTable } from 'tkcore/tk_AuditTable';
 import { Entity,Column } from 'typeorm';
 
 @Entity({name: "clientes", schema: "clientes"})
@@ -37,7 +37,7 @@ export class Clientes extends tk_AuditTable{
     @tk_ManyToOneRestricNullable(()=> TipoPersoneria)
     tipoPersoneria: number
 
-    @tk_ManyToOneRestricNullable(() => EstadoCivil)
+    @tk_ManyToOneRestricNullable(() => estadoCivil)
     estadoCivil: number
 
     @Column({type: "character varying",nullable:true, length: 9})

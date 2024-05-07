@@ -1,5 +1,5 @@
 import { UUID } from "crypto"
-import { Usuario } from "src/auth/usuarios/entities/usuario.entity"
+import { Usuario } from "auth/usuarios/entities/usuario.entity"
 import { Column, CreateDateColumn, Generated, JoinColumn, ManyToOne, PrimaryGeneratedColumn,  UpdateDateColumn } from "typeorm"
 
 export abstract class tk_AuditTable {

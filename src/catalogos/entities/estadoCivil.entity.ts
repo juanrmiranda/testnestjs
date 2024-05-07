@@ -1,5 +1,5 @@
-import { tk_CatalogTable } from "src/tkcore/tk_CatalogTable";
+import { tk_CatalogTable } from "tkcore/tk_CatalogTable";
 import { Entity } from "typeorm";
 
 @Entity({schema: "catalogos"})
-export class EstadoCivil extends tk_CatalogTable{}
+export class estadoCivil extends tk_CatalogTable{}
