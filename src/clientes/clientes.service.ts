@@ -11,11 +11,13 @@ export class ClientesService {
 
   async create(createClienteDto: CreateClienteDto) : Promise<Clientes> {
     const cliente = this.clienteRepository.create(createClienteDto)
+    cliente.updated_at=null
     return this.clienteRepository.save(cliente)
   }
 
   findAll() { 
-    return `This action returns all clientes`;
+    const clientes = this.clienteRepository.find()
+    return clientes
   }
 
   findOne(id: number) {

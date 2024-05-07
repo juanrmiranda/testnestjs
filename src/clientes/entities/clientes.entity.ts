@@ -4,6 +4,7 @@ import { Genero } from 'src/catalogos/entities/genero.entity';
 import { Profesion } from 'src/catalogos/entities/profesion.entity';
 import { TipoPersoneria } from 'src/catalogos/entities/tipoPersoneria.entity';
 import { TipoVivienda } from 'src/catalogos/entities/tipoVivienda.entity';
+import { tk_ManyToOneRestric, tk_ManyToOneRestricNullable } from 'src/tkcore/tk_RelationsRestriction.decorators';
 import { tk_AuditTable } from 'src/tkcore/tk_AuditTable';
 import {Entity,Column, ManyToOne, JoinColumn} from 'typeorm';
 
@@ -23,27 +24,26 @@ export class Clientes extends tk_AuditTable{
     
     @ManyToOne(type => Profesion,{onDelete: 'RESTRICT',onUpdate: 'RESTRICT'})
     @JoinColumn({ name: 'profesion' })
-    profesion: Profesion
+    @Column({name: 'profesion',nullable:true})
+    profesion: number
 
-    @ManyToOne(type => TipoVivienda,{onDelete: 'RESTRICT',onUpdate: 'RESTRICT'})
-    @JoinColumn({ name: 'tipo_vivienda' })
-    tipoivienda: TipoVivienda
+    @tk_ManyToOneRestricNullable(() => TipoVivienda)
+    tipo_vivienda: number
 
-    @ManyToOne(type => EstadoCliente,{onDelete: 'RESTRICT',onUpdate: 'RESTRICT'})
-    @JoinColumn({ name: 'estado' })
-    estado: EstadoCliente
+    @tk_ManyToOneRestricNullable(() => EstadoCliente)
+    estado: number
 
     @ManyToOne(type => Genero,{onDelete: 'RESTRICT',onUpdate: 'RESTRICT'})
     @JoinColumn({ name: 'genero' })
-    genero: Genero
+    genero: number
     
     @ManyToOne(type => TipoPersoneria,{onDelete: 'RESTRICT',onUpdate: 'RESTRICT'})
     @JoinColumn({ name: 'tipo_personeria' })
-    tipoPersoneria: TipoPersoneria
+    tipoPersoneria: number
 
     @ManyToOne(type => EstadoCivil,{onDelete: 'RESTRICT',onUpdate: 'RESTRICT'})
     @JoinColumn({ name: 'estado_civil' })
-    estadoCivil: EstadoCivil
+    estadoCivil: number
 
     @Column({type: "character varying",nullable:true, length: 9})
     dui: string

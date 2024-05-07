@@ -1,10 +1,9 @@
-import { IsDate, isDate, IsInt, IsOptional, IsString, MaxLength, MinDate, MinLength } from "class-validator"
+import { IsDateString, IsInt, IsOptional, IsString, MaxLength, MinLength } from "class-validator"
+import { Profesion } from "src/catalogos/entities/profesion.entity"
 
 export class CreateClienteDto {
     @IsString()
-    @MinLength(5,{
-
-    })
+    @MinLength(5)
     @MaxLength(100)
     nombres: string
     @IsString()
@@ -15,25 +14,24 @@ export class CreateClienteDto {
     @MinLength(5)
     @MaxLength(200)
     razon_social?: string
-    @IsDate()
+    @IsDateString()
     @IsOptional()
-    @MinDate(new Date("01/01/1900"))
     fechaNacimiento?: Date
     @IsOptional()
     @IsInt()
-    profesionId: number
+    profesion: number
     @IsOptional()
     @IsInt()
-    tipoiviendaId: number
+    tipo_vivienda: number
     @IsOptional()
     @IsInt()
-    generoId: number
+    genero: number
     @IsOptional()
     @IsInt()
-    tipoPersoneriaId: number
+    tipoPersoneria: number
     @IsOptional()
     @IsInt()
-    estadoCivilId: number
+    estadoCivil: number
     @IsOptional()
     @IsInt()
     created_by: number
