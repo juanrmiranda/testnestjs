@@ -1,11 +1,5 @@
-import { estadoCivil } from 'catalogos/entities/estadoCivil.entity'
-import { EstadoCliente } from 'catalogos/entities/estadoClientes.entity';
-import { Genero } from 'catalogos/entities/genero.entity';
-import { Profesion } from 'catalogos/entities/profesion.entity';
-import { TipoPersoneria } from 'catalogos/entities/tipoPersoneria.entity';
-import { TipoVivienda } from 'catalogos/entities/tipoVivienda.entity';
-import { tk_ManyToOneRestricNullable } from 'tkcore/tk_RelationsRestriction.decorators';
-import { tk_AuditTable } from 'tkcore/tk_AuditTable';
+import { EstadoCliente, TipoPersoneria, TipoVivienda, Genero, Profesion, estadoCivil } from 'catalogos/entities'; 
+import { tk_ManyToOneRestricNullable, tk_AuditTable } from 'tkcore';
 import { Entity,Column } from 'typeorm';
 
 @Entity({name: "clientes", schema: "clientes"})
